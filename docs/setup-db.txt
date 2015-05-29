@@ -1,0 +1,5 @@
+sqlite3 /tmp/flaskr.db < schema.sql
+
+or maunally run sqlite3 /tmp/flaskr.db
+
+use sqliteman to check the result

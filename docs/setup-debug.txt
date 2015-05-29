@@ -1,0 +1,7 @@
+import pdb
+
+pdb.set_trace()
+
+or 
+
+python -m pdb myscript.py

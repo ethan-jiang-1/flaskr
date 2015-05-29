@@ -1,0 +1,6 @@
+$ cd flaskr
+
+$ virtualenv flask
+
+$ flask/bin/pip install flask
+
