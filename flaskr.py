@@ -8,7 +8,7 @@ from flask import Flask, request, session, g, redirect, url_for, abort, render_t
 #configuration
 DATABASE = '/tmp/flaskr.db'
 DEBUG = True
-SECREATE_KEY = 'development key'
+SECRET_KEY = 'development key'
 USERNAME = 'admin'
 PASSWORD = 'default'
 
@@ -32,10 +32,10 @@ def teardown_request(exception):
 		db.close() 
 
 @app.route('/')
-def show_entires():
+def show_entries():
     cur = g.db.execute('select title, text from entries order by id desc')
     entries = [dict(title=row[0],text=row[1]) for row in cur.fetchall()]
-    pdb.set_trace()
+    #pdb.set_trace()
     rdt = render_template('show_entries.html', entires=entries)
     return rdt 
 
@@ -52,6 +52,8 @@ def add_entry():
 def login():
 	error = None
 	if request.method == 'POST':
+		#pdb.set_trace()
+
 		if request.form['username'] != app.config['USERNAME']:
 			error = 'Invalid username'
 		elif request.form['password'] != app.config['PASSWORD']:
@@ -67,7 +69,8 @@ def logout():
 	session.pop('logged_in',None)
 	flash('You were logged out')
 	return redirect(url_for('show_entries'))
-	
+
 
 if __name__ == '__main__':
+	#pdb.set_trace()
 	app.run() 
