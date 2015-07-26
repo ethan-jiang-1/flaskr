@@ -1,6 +1,6 @@
 1. make sure you have python 2.7.x installed
-
-2. if no virtualenv installed then 
+2. make sure you have python dev installed - suto apt-get install python-dev
+3. if no virtualenv installed then 
     $sudo apt-get install python-virtualenv
 
 $ cd flaskr
